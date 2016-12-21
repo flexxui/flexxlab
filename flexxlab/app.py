@@ -47,6 +47,12 @@ class JupyterLabPluginApp(app.Model):
                 
                 print('registering Flexx JLAB plugin ', model.id)
                 
+                # Allow dumb plugins
+                if not model.jlab_activate:
+                    model.title = model.title or model._class_name
+                    window.jupyter.lab.shell.addToMainArea(model.phosphor)
+                    continue
+                
                 func = model.jlab_activate
                 autoStart = getattr(model, 'JLAB_AUTOSTART', True)
                 requires = getattr(model, 'JLAB_REQUIRES', [])
