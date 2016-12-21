@@ -3,6 +3,8 @@ Flexxlab is a Python package and command line utility to enable writing
 Jupyterlab plugins using Flexx.
 """
 
+# flake8: noqa
+
 __version__ = '1.0.0'
 
 

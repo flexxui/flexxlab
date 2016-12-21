@@ -1,4 +1,5 @@
-from flexx import app, event, ui
+from flexx import ui
+from flexx.pyscript import window
 
 
 class FooPlugin(ui.Widget):

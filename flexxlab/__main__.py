@@ -107,6 +107,7 @@ class CLI:
         
         try:
             cls = get_class_from_name(name)
+            assert cls
         except Exception as err:
             sys.exit(str(err))
         

@@ -1,4 +1,3 @@
-from flexx import app, event, ui
 from flexx.ui.examples.mondriaan import Mondriaan
 
 # Note: jlab_activate is not even strictly necessary, so you could

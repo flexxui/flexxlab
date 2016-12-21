@@ -1,4 +1,3 @@
-from flexx import app, event, ui
 from flexx.ui.examples.chatroom import ChatRoom
 
 

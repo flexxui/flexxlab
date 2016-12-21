@@ -2,6 +2,7 @@ import os
 import sys
 
 from flexx import app, event, ui
+from flexx.pyscript import window
 
 
 # todo: make this add a menu entry - once we can create a Phosphor Menu
@@ -51,7 +52,7 @@ class CondaManagerPlugin(ui.Widget):
         self._tree.items = ()  # i.e. clear
         with self._tree:
             for env_name in env_names:
-                item = ui.TreeItem(title=env_name, collapsed=True)
+                ui.TreeItem(title=env_name, collapsed=True)
     
     @event.connect('_tree.items*.collapsed')
     def _collect_packages(self, *events):
@@ -132,7 +133,6 @@ def conda_cmd(command):
     try:
         sys.stderr.write = lambda x: len(x)
         sys.stdout.write = lambda x: lines.append(x) or len(x)
-        import conda
         from conda.cli import main
         sys.argv = args
         main()

@@ -4,6 +4,7 @@ responsible for instantiating all flexxlab plugins.
 """
 
 from flexx import app, event
+from flexx.pyscript import window
 
 from .registry import get_plugin_classes
 
