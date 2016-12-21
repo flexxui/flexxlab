@@ -20,16 +20,6 @@ THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 flexx_app_name = 'jlab'
 
 
-MANIFEST = """{
-"name": "flexxlab",
-"entry": "flexx@1.0.0/dummy.js",
-"files": ["flexx-core.js"],
-"modules": {
-    "flexx@1.0.0/dummy.js": []
-}
-}"""
-
-
 ENTRY = """
 /** START DEFINE BLOCK for flexx@1.0.0/dummy.js **/
 jupyter.define('flexx@1.0.0/dummy.js', function (module) {
@@ -41,29 +31,19 @@ jupyter.define('flexx@1.0.0/dummy.js', function (module) {
 /** END DEFINE BLOCK for flexx@1.0.0/dummy.js **/
 """
 
-# todo: we may not be able to write here ... so package, meh
+
+def write_flexx_core_js():
+    """ Write flexx' bootstap js file.
+    Called at install time and is attempted to be called an "enable time".
+    """
+    code = ENTRY + app.assets.get_asset('flexx-core.js').to_string()
+    with open(os.path.join(THIS_DIR, 'static', 'flexx-core.js'), 'wb') as f:
+        f.write(code.encode('utf-8'))
+
 
 def _jupyter_labextension_paths():
     # This is called once, when the server starts.
     # It must return a dict that describes the lab extension.
-    
-    print('inside Flexx _jupyter_labextension_paths')
-    
-    # Write flexx bootstap js
-    code = ENTRY + app.assets.get_asset('flexx-core.js').to_string()
-    path = os.path.join(THIS_DIR, 'static')
-    try:
-        os.makedirs(path)
-    except OSError as exc:  # Python >2.5
-        if exc.errno == errno.EEXIST and os.path.isdir(path):
-            pass
-        else:
-            raise
-    with open(os.path.join(path, 'flexx-core.js'), 'wb') as f:
-        f.write(code.encode('utf-8'))
-    with open(os.path.join(path, 'flexxlab.manifest'), 'wb') as f:
-        f.write(MANIFEST.encode('utf-8'))
-    
     return [{
         'name': 'flexxlab',
         'src': 'static',
@@ -74,8 +54,6 @@ def _jupyter_labextension_config():
     # This (optional function) is called at each launch of the `/lab` page.
     # It must return a dict with config options to supply to the client.
     # We use it to instantiate a session too.
-    
-    print('inside Flexx _jupyter_labextension_config - getting session')
     
     # The application arg is a NotebookWebApplication, which ultimately derives
     # from the Tornado application class.

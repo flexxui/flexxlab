@@ -1,0 +1,8 @@
+{
+"name": "flexxlab",
+"entry": "flexx@1.0.0/dummy.js",
+"files": ["flexx-core.js"],
+"modules": {
+    "flexx@1.0.0/dummy.js": []
+}
+}

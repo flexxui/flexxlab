@@ -8,6 +8,8 @@ import subprocess
 from .registry import (get_plugin_names, get_class_from_name,
                        add_plugin_name, remove_plugin_name)
 
+from .labext import write_flexx_core_js
+
 
 class CLI:
     """ Command line interface class. Commands are simply defined as methods.
@@ -76,12 +78,21 @@ class CLI:
         run_cmd('jupyter serverextension enable --py flexxlab')
         run_cmd('jupyter labextension install --py flexxlab')
         run_cmd('jupyter labextension enable --py flexxlab')
+        
+        try:
+            write_flexx_core_js()
+        except Exception as err:
+            print('Could not update flexx-core.js:', err)
+        
+        print('Flexxlab is ready to use!')
     
     def cmd_disable(self):
         """ Unregister flexxlab as a server and lab extension.
         """
         run_cmd('jupyter serverextension disable --py flexxlab')
         run_cmd('jupyter labextension disable --py flexxlab')
+        
+        print('Flexxlab is disabled.')
     
     def cmd_add(self, name=''):
         """ Add a Flexx model as a Jupyterlab plugin.
