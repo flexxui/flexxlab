@@ -25,14 +25,14 @@ At the moment, this needs bleeding edge versions of Flexx (and also Jupyterlab?)
   want to run this again to install the latest `flexx-core.js` into Jupyterlab.
 * Use `flexxlab disable` to turn it all off again.
 * Use `flexxlab add x.y.MyModel` to register a Flexx Model/Widget as a plugin.
-* Use `flexxlab remove x.y.MyModel` to turn Flexx plugins off.
+* Use `flexxlab remove x.y.MyModel` to turn individual plugins off.
 
 
 ## Writing plugins
 
 Plugins are simply a subclass of `flexx.app.Model` or `flexx.ui.Widget`.
-It should preferably have a `jlab_activate` in JS, and can also implement
-`JLAB_AUTOSTART` and `JLAB_REQUIRES`. For example:
+It should preferably have a `jlab_activate()` method in JS, and can also
+implement `JLAB_AUTOSTART` and `JLAB_REQUIRES`. For example:
 
 ```py
 class MyPlugin(ui.Widget):
@@ -58,6 +58,6 @@ class MyPlugin(ui.Widget):
 
 ```
 
-See the https://github.com/zoofIO/flexxlab/tree/master/flexxlab/examples
+See https://github.com/zoofIO/flexxlab/tree/master/flexxlab/examples
 for more examples. See the Flexx documentations to learn more about creating
 widgets with Flexx.

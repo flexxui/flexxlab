@@ -1,0 +1,1 @@
+Examples of Jupyterlab plugins written in Flexx that can be added with flexxlab.
