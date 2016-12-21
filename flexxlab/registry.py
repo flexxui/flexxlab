@@ -1,5 +1,6 @@
 """
-This module handles the registering of Flexxlab plugins.
+This module handles the registering of Flexxlab plugins. A list is
+maintained in the Flexx appdata dir.
 """
 
 import os

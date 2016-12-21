@@ -1,3 +1,8 @@
+"""
+This module implements the Flexx model that acts as the "plugin manager", 
+responsible for instantiating all flexxlab plugins.
+"""
+
 from flexx import app, event
 
 from .registry import get_plugin_classes

@@ -1,14 +1,11 @@
 import os
 import sys
 
-from flexx_labext import register_flexx_jlab_plugin
-
 from flexx import app, event, ui
 
 
 # todo: make this add a menu entry - once we can create a Phosphor Menu
 
-@register_flexx_jlab_plugin
 class CondaManagerPlugin(ui.Widget):
     """
     A widget that can display the environments for the current Python

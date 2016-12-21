@@ -1,10 +1,7 @@
-from flexx_labext import register_flexx_jlab_plugin
-
 from flexx import app, event, ui
 from flexx.ui.examples.chatroom import ChatRoom
 
 
-@register_flexx_jlab_plugin
 class ChatPlugin(ChatRoom):
     """
     A plugin that provides a widget exposing a chatroom that connects

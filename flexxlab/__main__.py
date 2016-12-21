@@ -1,3 +1,7 @@
+"""
+CLI for flexxlab
+"""
+
 import sys
 import subprocess
 
@@ -59,7 +63,7 @@ class CLI:
             print(self.get_global_help())
     
     def cmd_version(self):
-        """ print the version number
+        """ print the flexxlab version number.
         """
         import flexxlab
         print(flexxlab.__version__)
@@ -67,14 +71,14 @@ class CLI:
         #print(http_fetch('http://localhost:%i/flexx/cmd/log' % int(port)))
     
     def cmd_enable(self):
-        """ Register flexxlab as a Jupyter server extension and a JLab plugin.
+        """ Register flexxlab as a server and lab extension.
         """
         run_cmd('jupyter serverextension enable --py flexxlab')
         run_cmd('jupyter labextension install --py flexxlab')
         run_cmd('jupyter labextension enable --py flexxlab')
     
     def cmd_disable(self):
-        """ Unregister flexxlab as a Jupyter server extension and JLab plugin.
+        """ Unregister flexxlab as a server and lab extension.
         """
         run_cmd('jupyter serverextension disable --py flexxlab')
         run_cmd('jupyter labextension disable --py flexxlab')
@@ -125,6 +129,8 @@ class CLI:
 
 
 def run_cmd(cmd):
+    """ Run a CLI command. Only for simple commands that don't require escaping.
+    """
     print(cmd)
     try:
         subprocess.check_call(cmd.split(' '))

@@ -41,6 +41,7 @@ jupyter.define('flexx@1.0.0/dummy.js', function (module) {
 /** END DEFINE BLOCK for flexx@1.0.0/dummy.js **/
 """
 
+# todo: we may not be able to write here ... so package, meh
 
 def _jupyter_labextension_paths():
     # This is called once, when the server starts.

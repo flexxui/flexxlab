@@ -1,9 +1,6 @@
-from flexx_labext import register_flexx_jlab_plugin
-
 from flexx import app, event, ui
 
 
-@register_flexx_jlab_plugin
 class FooPlugin(ui.Widget):
     """
     A silly widget that demonstrates hooking up to Jlab services.
