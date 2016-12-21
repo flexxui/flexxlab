@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+flexxlab/static/flexx-core.js
+flexxlab/static/flexxlab.MANIFEST
+
 # C extensions
 *.so
 
