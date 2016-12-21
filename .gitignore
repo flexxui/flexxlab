@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+MANIFEST
 flexxlab/static/flexx-core.js
 
 # Distribution / packaging
